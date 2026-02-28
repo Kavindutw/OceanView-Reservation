@@ -45,6 +45,21 @@ public class ReservationDaoImpl implements ReservationDao {
             throw new RuntimeException("Create reservation failed", e);
         }
     }
+    @Override
+    public void deleteByReservationNo(String reservationNo) {
+
+        String sql = "DELETE FROM reservations WHERE reservation_no=?";
+
+        try (Connection con = Db.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, reservationNo);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Delete reservation failed", e);
+        }
+    }
 
     @Override
     public Reservation findByReservationNo(String reservationNo) {

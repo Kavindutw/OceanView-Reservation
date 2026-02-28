@@ -9,10 +9,12 @@
 <head>
     <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ADD THIS -->
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark px-3">
-    <span class="navbar-brand">OceanView Reservation System</span>
+    <span class="navbar-brand">OceanView Reservation System🏖️</span>
     <span class="text-white">Logged in: <%= user.getUsername() %> (<%= user.getRole() %>)</span>
 </nav>
 

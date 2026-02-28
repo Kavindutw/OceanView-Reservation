@@ -18,6 +18,10 @@ public class ReservationServiceImpl implements ReservationService {
         }
         reservationDao.create(r);
     }
+    @Override
+    public void deleteReservation(String reservationNo) {
+        reservationDao.deleteByReservationNo(reservationNo);
+    }
 
     @Override
     public Reservation getByReservationNo(String reservationNo) {
