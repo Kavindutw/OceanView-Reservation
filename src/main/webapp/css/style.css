@@ -1,0 +1,20 @@
+/* OceanView Global Background */
+body {
+    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Glass effect for cards */
+.card {
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+}
+
+/* Optional dashboard buttons spacing */
+.btn {
+    font-weight: 500;
+}
