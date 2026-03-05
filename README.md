@@ -221,7 +221,7 @@ Stores room types and rates.
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/OceanView-Reservation-JavaEE.git
+git clone https://github.com/Kavindutw/OceanView-Reservation.git
 ```
 
 ---
