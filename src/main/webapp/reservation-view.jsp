@@ -48,8 +48,27 @@
             <p class="mb-1"><b>Check-out:</b> <%= r.getCheckOut() %></p>
             <p class="mb-0"><b>Nights:</b> <%= nightsObj %></p>
 
-            <div class="mt-3">
-                <a class="btn btn-warning" href="<%=request.getContextPath()%>/bill?reservationNo=<%= r.getReservationNo() %>">Go to Bill</a>
+            <div class="mt-3 d-flex gap-2">
+
+                <!-- Bill Button -->
+                <a class="btn btn-warning"
+                   href="<%=request.getContextPath()%>/bill?reservationNo=<%= r.getReservationNo() %>">
+                    Go to Bill
+                </a>
+
+                <!-- DELETE BUTTON -->
+                <form method="post"
+                      action="<%=request.getContextPath()%>/reservation/delete"
+                      onsubmit="return confirm('Are you sure you want to delete this reservation?');">
+
+                    <input type="hidden" name="reservationNo"
+                           value="<%= r.getReservationNo() %>">
+
+                    <button class="btn btn-danger">
+                        Delete Reservation
+                    </button>
+                </form>
+
             </div>
         </div>
     </div>
