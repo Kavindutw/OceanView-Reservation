@@ -8,7 +8,14 @@
   <!-- ADD THIS -->
   <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
   <script>
-    function printBill() { window.print(); }
+    function printBill() {
+      const printContent = document.getElementById("billArea").innerHTML;
+      const originalContent = document.body.innerHTML;
+
+      document.body.innerHTML = printContent;
+      window.print();
+      document.body.innerHTML = originalContent;
+    }
   </script>
 </head>
 <body class="bg-light">
@@ -39,17 +46,54 @@
     Object total = request.getAttribute("total");
     if (r != null) {
   %>
-  <div class="card mt-3">
+  <div id="billArea" class="card mt-4">
     <div class="card-body">
-      <h5>Bill - Reservation <%= r.getReservationNo() %></h5>
-      <p class="mb-1"><b>Guest:</b> <%= r.getGuestName() %></p>
-      <p class="mb-1"><b>Room Type:</b> <%= r.getRoomTypeCode() %></p>
-      <p class="mb-1"><b>Check-in:</b> <%= r.getCheckIn() %></p>
-      <p class="mb-1"><b>Check-out:</b> <%= r.getCheckOut() %></p>
-      <p class="mb-1"><b>Nights:</b> <%= nights %></p>
+
+      <h3 class="text-center">Ocean View Resort</h3>
+      <p class="text-center">Galle, Sri Lanka</p>
       <hr>
-      <h4>Total: LKR <%= total %></h4>
-      <button class="btn btn-primary mt-2" onclick="printBill()">Print</button>
+
+      <h5>Reservation Number: <%= r.getReservationNo() %></h5>
+
+      <table class="table table-bordered mt-3">
+
+        <tr>
+          <th>Guest Name</th>
+          <td><%= r.getGuestName() %></td>
+        </tr>
+
+        <tr>
+          <th>Room Type</th>
+          <td><%= r.getRoomTypeCode() %></td>
+        </tr>
+
+        <tr>
+          <th>Check-in Date</th>
+          <td><%= r.getCheckIn() %></td>
+        </tr>
+
+        <tr>
+          <th>Check-out Date</th>
+          <td><%= r.getCheckOut() %></td>
+        </tr>
+
+        <tr>
+          <th>Total Nights</th>
+          <td><%= nights %></td>
+        </tr>
+
+      </table>
+
+      <h4 class="text-end">Total Amount: LKR <%= total %></h4>
+
+      <hr>
+
+      <p class="text-center">Thank you for staying with Ocean View Resort!</p>
+
+    </div>
+  </div>
+
+  <button class="btn btn-primary mt-3" onclick="printBill()">Print Bill</button>
     </div>
   </div>
   <% } %>
