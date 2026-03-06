@@ -29,7 +29,7 @@
         </div>
         <button class="btn btn-primary w-100">Login</button>
       </form>
-      <p class="text-muted mt-3 mb-0">Default admin: <b>admin</b> / <b>admin123</b></p>
+      <p class="text-muted mt-3 mb-0">Default admin: <b></b> / <b></b></p>
     </div>
   </div>
 </div>
